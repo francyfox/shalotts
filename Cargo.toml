@@ -1,10 +1,4 @@
-[package]
-name = "genoplate"
-version = "0.1.0"
-edition = "2024"
-
 [workspace]
-members = [
-]
-
-[dependencies]
+members = ["crates/geno-cli","crates/geno-template"]
+default-members = ["crates/geno-cli"]
+resolver = "2"
