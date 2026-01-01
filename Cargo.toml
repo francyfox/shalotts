@@ -1,4 +1,4 @@
 [workspace]
-members = ["crates/geno-cli","crates/geno-template"]
-default-members = ["crates/geno-cli"]
+members = ["crates/sha-cli", "crates/sha-parser"]
+default-members = ["crates/sha-cli"]
 resolver = "2"

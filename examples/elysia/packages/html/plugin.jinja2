@@ -1,0 +1,8 @@
+{% block import %}
+import { Elysia } from 'elysia';
+import { html, Html } from '@elysiajs/html'
+{% endblock import %}
+
+{% block add.plugin %}
+.use(html())
+{% endblock %}

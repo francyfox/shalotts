@@ -1,0 +1,10 @@
+{% block import %}
+import { Elysia } from "elysia";
+{% endblock import %}
+
+{% block add %}
+export const app = new Elysia();
+
+app{% block plugin %}
+{% endblock plugin %};
+{% endblock add %}
