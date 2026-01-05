@@ -1,4 +1,8 @@
+authors = ["francyfox <7info7web@gmail.com>"]
+license = "MIT"
+edition = "2024"
+
 [workspace]
-members = ["crates/sha-cli", "crates/sha-parser"]
+members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli"]
 default-members = ["crates/sha-cli"]
 resolver = "2"
