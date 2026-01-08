@@ -1,0 +1,13 @@
+seed = ""
+name = "Elysia starter"
+ecosystem = "elysia"
+
+[tab.back]
+name = "Server"
+
+[tab.back.serve]
+required = true
+packages = ["core"]
+
+[tab.back.pack]
+packages = ["html", "static"]

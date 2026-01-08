@@ -8,7 +8,6 @@ enum Route {
     Home {},
 }
 
-
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 const HEADER_SVG: Asset = asset!("/assets/header.svg");
@@ -30,8 +29,7 @@ fn App() -> Element {
 /// Home page
 #[component]
 fn Home() -> Element {
-    rsx! {
-    }
+    rsx! {}
 }
 
 /// Shared navbar component.
@@ -49,5 +47,3 @@ fn Navbar() -> Element {
         Outlet::<Route> {}
     }
 }
-
-

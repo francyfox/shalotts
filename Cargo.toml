@@ -1,8 +1,19 @@
+[profile.dev]
+opt-level = 1
+
+[workspace]
+members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli", "crates/sha-utils"]
+default-members = ["crates/sha-cli"]
+resolver = "2"
+
+[workspace.dependencies]
+flexi_logger = "0.31.7"
+
+[workspace.package]
+name = "shalotts"
 authors = ["francyfox <7info7web@gmail.com>"]
 license = "MIT"
 edition = "2024"
-
-[workspace]
-members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli"]
-default-members = ["crates/sha-cli"]
-resolver = "2"
+exclude = [".github/*", ".vscode/*", "assets/*"]
+readme = "README.md"
+keywords = ["webui", "cli", "ui", "boilerplate"]

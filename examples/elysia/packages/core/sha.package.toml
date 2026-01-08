@@ -1,0 +1,3 @@
+name = "elysia-core"
+description = "Main core package for elysia ecosystem"
+order = 0

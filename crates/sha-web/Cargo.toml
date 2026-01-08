@@ -1,5 +1,5 @@
 [package]
-name = "sha-web"
+name = "sha_web"
 version = "0.1.0"
 authors = ["francyfox <7info7web@gmail.com>"]
 edition = "2021"
