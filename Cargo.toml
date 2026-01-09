@@ -2,12 +2,13 @@
 opt-level = 1
 
 [workspace]
-members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli", "crates/sha-utils"]
+members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli", "crates/sha-utils", "crates/sha-scaffolder"]
 default-members = ["crates/sha-cli"]
 resolver = "2"
 
 [workspace.dependencies]
 flexi_logger = "0.31.7"
+log = "0.4.29"
 
 [workspace.package]
 name = "shalotts"

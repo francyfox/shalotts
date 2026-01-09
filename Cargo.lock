@@ -4820,8 +4820,18 @@ dependencies = [
  "color-eyre",
  "crossterm",
  "flexi_logger",
+ "log",
  "ratatui",
+ "sha_scaffolder",
  "sha_utils",
+ "sha_validator",
+]
+
+[[package]]
+name = "sha_scaffolder"
+version = "0.1.0"
+dependencies = [
+ "log",
  "sha_validator",
 ]
 
@@ -4833,6 +4843,7 @@ version = "0.1.0"
 name = "sha_validator"
 version = "0.1.0"
 dependencies = [
+ "log",
  "serde",
  "sha_utils",
  "thiserror 2.0.17",

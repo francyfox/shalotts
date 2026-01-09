@@ -6,11 +6,13 @@ description = "An example generated using the hello-world template"
 
 [dependencies]
 flexi_logger.workspace = true
+log.workspace = true
 color-eyre = "0.6.3"
 crossterm = "0.29.0"
 ratatui = "0.30.0"
 sha_validator = { path = "../sha-validator" }
 sha_utils = { path = "../sha-utils" }
+sha_scaffolder = { path = "../sha-scaffolder" }
 
 # Read the optimization guideline
 [profile.release]

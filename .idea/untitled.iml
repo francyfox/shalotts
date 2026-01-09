@@ -15,6 +15,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/sha-validator/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/sha-web/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/sha-utils/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/sha-scaffolder/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

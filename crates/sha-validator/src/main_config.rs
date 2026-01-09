@@ -17,13 +17,11 @@ pub fn validate(file_path: &str) -> Result<ShaMainConfig, ValidationError> {
     let mut path = get_workspace_root();
     path.push(file_path.strip_prefix("/").unwrap_or(file_path));
 
-    println!("Reading config from: {}", path.display());
-
+    
     let content = fs::read_to_string(path).map_err(ValidationError::IoError)?;
     let main_config: ShaMainConfig =
         toml::from_str(&content).map_err(ValidationError::ParseError)?;
 
-    println!("Config parsed successfully: {:?}", main_config);
-
+    log::info!("main config parsed");
     Ok(main_config)
 }
