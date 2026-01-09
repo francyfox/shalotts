@@ -1,10 +1,10 @@
-BINS := $(filter-out run,$(MAKECMDGOALS))
+.PHONY: dev docs
 
 dev:
 	cd ./crates/sha-app && dx serve --platform web
 
-run:
-	@$(foreach bin,$(BINS),cargo run --bin $(bin) &)
+dev-cli:
+	cargo run
 
-%:
-	@:
+docs:
+	cd ./docs && bun dev

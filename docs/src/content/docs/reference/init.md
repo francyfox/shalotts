@@ -1,3 +1,7 @@
+---
+title: Init
+---
+
 # Genoplate
 
 Easy create you own boilerplate from custom packages. Select packages in
