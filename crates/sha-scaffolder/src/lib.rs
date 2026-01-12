@@ -1,15 +1,18 @@
-use sha_validator::{validate, ShaMainConfig};
+use sha_validator::{ShaMainConfig, validate};
+
+use crate::generate::Generator;
+mod generate;
 
 pub struct Scaffolder {
-    config: ShaMainConfig
+    config: ShaMainConfig,
 }
 
 impl Scaffolder {
-    pub fn new(path: &str) -> Self {              
+    pub fn new(path: &str, output: &str) -> Self {
         let validated = validate(path).unwrap();
-        
-        Self {
-            config: validated
-        }
+        let mut generator = Generator::new();
+        generator.make(&validated);
+
+        Self { config: validated }
     }
 }

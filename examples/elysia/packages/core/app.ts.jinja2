@@ -3,8 +3,8 @@ import { Elysia } from "elysia";
 {% endblock import %}
 
 {% block add %}
-export const app = new Elysia();
+export const core = new Elysia();
 
-app{% block plugin %}
+core{% block plugin %}
 {% endblock plugin %};
 {% endblock add %}

@@ -7,8 +7,8 @@ default-members = ["crates/sha-cli"]
 resolver = "2"
 
 [workspace.dependencies]
-flexi_logger = "0.31.7"
-log = "0.4.29"
+flexi_logger = "0.28"
+log = "0.4"
 
 [workspace.package]
 name = "shalotts"

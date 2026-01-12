@@ -1,7 +1,7 @@
 extern crate ratatui;
 use flexi_logger::{AdaptiveFormat, FileSpec, Logger, WriteMode, detailed_format};
 use ratatui::{DefaultTerminal, Frame};
-use sha_scaffolder::{Scaffolder};
+use sha_scaffolder::Scaffolder;
 
 fn main() -> color_eyre::Result<()> {
     let _logger = Logger::try_with_str("info")?
@@ -13,7 +13,9 @@ fn main() -> color_eyre::Result<()> {
         .start()?;
 
     let main_config_path: &str = "/examples/elysia/sha.toml";
-    Scaffolder::new(main_config_path);
+    let output_path: &str = "/test-app";
+
+    let boilerplate = Scaffolder::new(main_config_path, output_path);
     color_eyre::install()?;
     ratatui::run(app)?;
     Ok(())

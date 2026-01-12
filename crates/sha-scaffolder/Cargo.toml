@@ -6,3 +6,4 @@ edition = "2024"
 [dependencies]
 log.workspace = true
 sha_validator = { path = "../sha-validator" }
+sha_utils = { path = "../sha-utils" }

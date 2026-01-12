@@ -1,6 +1,7 @@
 ---
 title: Intro
 ---
+<img height="200" src="https://www.stockvault.net/data/2016/04/17/193628/preview16.jpg" title="onion" width="200"/>
 
 The shallot /ʃəˈlɒt/ is a cultivar group of the onion. I renamed project to 
 shalotts for more unique naming. Like onion, you can create boilerplate from 
