@@ -1,0 +1,39 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "label": "Debug sha-cli",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "program": "${ZED_WORKTREE_ROOT}/target/debug/sha-cli",
+    "sourceLanguages": ["rust"],
+    "build": {
+      "command": "cargo",
+      "args": ["build", "--package", "sha_cli"]
+    }
+  },
+  {
+    "label": "Debug sha-web",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "program": "${ZED_WORKTREE_ROOT}/target/debug/sha-web",
+    "sourceLanguages": ["rust"],
+    "build": {
+      "command": "cargo",
+      "args": ["build", "--package", "sha_web"]
+    }
+  },
+  {
+    "label": "Debug sha-validator",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "program": "${ZED_WORKTREE_ROOT}/target/debug/sha-validator",
+    "sourceLanguages": ["rust"],
+    "build": {
+      "command": "cargo",
+      "args": ["build", "--package", "sha_validator"]
+    }
+  }
+]

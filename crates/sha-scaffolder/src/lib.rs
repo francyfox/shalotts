@@ -10,7 +10,7 @@ pub struct Scaffolder {
 impl Scaffolder {
     pub fn new(path: &str, output: &str) -> Self {
         let validated = validate(path).unwrap();
-        let mut generator = Generator::new();
+        let mut generator = Generator::new(path.into());
         generator.make(&validated);
 
         Self { config: validated }

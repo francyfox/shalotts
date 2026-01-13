@@ -1,6 +1,3 @@
-[profile.dev]
-opt-level = 1
-
 [workspace]
 members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli", "crates/sha-utils", "crates/sha-scaffolder"]
 default-members = ["crates/sha-cli"]

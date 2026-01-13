@@ -7,6 +7,6 @@ sha_utils = { path = "../sha-utils" }
 [dependencies]
 log.workspace = true
 serde = { version = "1.0.228", features = ["derive"] }
-toml = "0.9.10+spec-1.1.0"
+toml = "0.9.10"
 thiserror = "2.0.17"
 sha_utils = { version = "0.1.0", path = "../sha-utils" }

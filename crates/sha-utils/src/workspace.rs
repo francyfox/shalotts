@@ -1,4 +1,5 @@
 use nanoid::nanoid;
+use walkdir::WalkDir;
 use std::{
     fs::read_dir,
     path::{Path, PathBuf},
@@ -20,17 +21,16 @@ pub fn get_workspace_root() -> PathBuf {
     manifest_dir
 }
 
-pub fn parse_dir(path: &Path, ignore: Option<&Path>) {
-    println!("{:?}", path);
-    if let Ok(entries) = read_dir(path) {
-        for entry in entries {
-            if let Ok(entry) = entry {
-                println!("{:#?}", entry.path());
-            }
-        }
-    } else {
-        panic!("Cant read. Wrong path? {:?}", path);
-    }
+pub fn is_core_dir(path: &Path) -> bool {
+    path.components().any(|i| i.as_os_str() == "core")
+}
+
+pub fn parse_dir(path: &Path, _ignore: Option<&Path>) -> Vec<PathBuf> {
+    WalkDir::new(path)
+        .into_iter()
+        .filter_map(|i| i.ok())
+        .map(|i| i.into_path())
+        .collect()
 }
 
 fn random(size: usize) -> Vec<u8> {

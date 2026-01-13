@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Build sha-cli",
+    "command": "cargo",
+    "args": ["build", "--package", "sha_cli"]
+  },
+  {
+    "label": "Build sha-web",
+    "command": "cargo",
+    "args": ["build", "--package", "sha_web"]
+  },
+  {
+    "label": "Build sha-validator",
+    "command": "cargo",
+    "args": ["build", "--package", "sha_validator"]
+  },
+  {
+    "label": "Build All",
+    "command": "cargo",
+    "args": ["build", "--workspace"]
+  },
+  {
+    "label": "Test with output",
+    "command": "cargo",
+    "args": ["test", "--workspace", "--", "--nocapture"]
+  },
+  {
+    "label": "Run sha-cli",
+    "command": "cargo",
+    "args": ["run", "--package", "sha_cli"]
+  }
+]
