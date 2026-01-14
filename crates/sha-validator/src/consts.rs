@@ -2,12 +2,12 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 pub enum ValidationError {
-    #[error("Не удалось прочитать файл: {0}")]
+    #[error("Cant read file: {0}")]
     IoError(std::io::Error),
-    #[error("Ошибка парсинга TOML: {0}")]
+    #[error("Parser TOML error: {0}")]
     ParseError(toml::de::Error),
-    #[error("Отсутствует обязательное поле: {0}")]
+    #[error("Missing required field: {0}")]
     MissingField(String),
-    #[error("Пустое значение поля: {0}")]
+    #[error("Missing field value: {0}")]
     EmptyField(String),
 }

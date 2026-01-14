@@ -5,4 +5,6 @@ edition = "2024"
 
 [dependencies]
 nanoid = "0.4.0"
+tera = "1.20.1"
+thiserror = "2.0.17"
 walkdir = "2.5.0"

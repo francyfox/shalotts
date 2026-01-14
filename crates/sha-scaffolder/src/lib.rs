@@ -1,3 +1,5 @@
+use std::path::Path;
+
 use sha_validator::{ShaMainConfig, validate};
 
 use crate::generate::Generator;
@@ -10,8 +12,7 @@ pub struct Scaffolder {
 impl Scaffolder {
     pub fn new(path: &str, output: &str) -> Self {
         let validated = validate(path).unwrap();
-        let mut generator = Generator::new(path.into());
-        generator.make(&validated);
+        let mut generator = Generator::new(Path::new(path));
 
         Self { config: validated }
     }

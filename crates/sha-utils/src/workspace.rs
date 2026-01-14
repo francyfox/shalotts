@@ -1,9 +1,9 @@
 use nanoid::nanoid;
-use walkdir::WalkDir;
 use std::{
     fs::read_dir,
     path::{Path, PathBuf},
 };
+use walkdir::WalkDir;
 
 pub fn is_workspace_root(path: &Path) -> bool {
     std::fs::read_to_string(path.join("Cargo.toml"))
