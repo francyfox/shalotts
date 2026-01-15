@@ -1,6 +1,5 @@
 use nanoid::nanoid;
 use std::{
-    fs::read_dir,
     path::{Path, PathBuf},
 };
 use walkdir::WalkDir;

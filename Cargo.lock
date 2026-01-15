@@ -4977,6 +4977,7 @@ dependencies = [
 name = "sha_utils"
 version = "0.1.0"
 dependencies = [
+ "log",
  "nanoid",
  "tera",
  "thiserror 2.0.17",

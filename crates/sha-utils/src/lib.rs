@@ -1,4 +1,4 @@
-mod consts;
+pub mod consts;
 mod tera;
 mod workspace;
 

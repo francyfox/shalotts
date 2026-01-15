@@ -55,10 +55,13 @@ pub fn create_boilerplate_files(
 pub fn write_boilerplate_files(files: HashMap<String, String>, output: &str) -> Result<(), Error> {
     let root_path = get_workspace_root();
 
+    println!("{:?}", files);
     for (path, content) in files {
         let relative = Path::new(&path).strip_prefix(&root_path);
+        let output_path = format!("{}/{:?}", output, relative);
 
-        fs::write(format!("{}/{:?}", output, relative), content).map_err(Error::IoError)?;
+        fs::write(&output_path, content).map_err(Error::IoError)?;
+        log::info!("File written: {}", &output_path);
     }
 
     Ok(())
