@@ -1,10 +1,9 @@
-{% block import %}
+{%- block import -%}
 import { Elysia } from "elysia";
-{% endblock import %}
+{%- endblock import %}
 
-{% block add %}
+{%- block add %}
 export const core = new Elysia();
 
-core{% block plugin %}
-{% endblock plugin %};
-{% endblock add %}
+core.{%- block plugin -%}{%- endblock plugin -%};
+{%- endblock add -%}

@@ -28,6 +28,7 @@ pub fn parse_dir(path: &Path, _ignore: Option<&Path>) -> Vec<PathBuf> {
     WalkDir::new(path)
         .into_iter()
         .filter_map(|i| i.ok())
+        .filter(|e| e.file_type().is_file())
         .map(|i| i.into_path())
         .collect()
 }

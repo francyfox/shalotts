@@ -15,10 +15,8 @@ pub struct Generator<'a> {
 
 impl<'a> Generator<'a> {
     pub fn new(path: &'a Path, output: &'a Path) -> Self {
-        let root = get_workspace_root();
-
         Self {
-            root,
+            root: PathBuf::new(),
             path,
             output,
             parsed: HashMap::new(),
@@ -27,10 +25,16 @@ impl<'a> Generator<'a> {
     }
 
     pub fn parse(&mut self) {
-        if let Some(parent) = self.path.parent() {
-            self.root.push(parent.strip_prefix("/").unwrap_or(parent));
-            self.root.push("packages");
-        };
+        // path points to sha.toml file, get its parent for packages
+        if let Some(example_dir) = self.path.parent() {
+            // If path is relative, resolve it from workspace root
+            let absolute_path = if self.path.is_absolute() {
+                example_dir.to_path_buf()
+            } else {
+                get_workspace_root().join(example_dir)
+            };
+            self.root = absolute_path.join("packages");
+        }
 
         self.structure = parse_dir(self.root.as_path(), None);
         

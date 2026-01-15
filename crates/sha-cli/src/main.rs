@@ -12,10 +12,11 @@ fn main() -> color_eyre::Result<()> {
         .write_mode(WriteMode::BufferAndFlush)
         .start()?;
 
-    let main_config_path: &str = "/examples/elysia/sha.toml";
-    let output_path: &str = "/test-app";
+    let main_config_path: &str = "examples/elysia/sha.toml";
+    let output_path: &str = "./test-app";
 
-    let boilerplate = Scaffolder::new(main_config_path, output_path);
+    let scaffolder = Scaffolder::new(main_config_path);
+    let _ = scaffolder.generate(main_config_path, output_path);
     color_eyre::install()?;
     ratatui::run(app)?;
     Ok(())
