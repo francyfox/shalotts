@@ -1,9 +1,10 @@
+use sha_utils::consts::Error;
 use sha_utils::{create_boilerplate_files, get_workspace_root, parse_dir, write_boilerplate_files};
 use std::{
     collections::HashMap,
+    fs::remove_dir_all,
     path::{Path, PathBuf},
 };
-use sha_utils::consts::Error;
 
 pub struct Generator<'a> {
     root: PathBuf,
@@ -37,14 +38,20 @@ impl<'a> Generator<'a> {
         }
 
         self.structure = parse_dir(self.root.as_path(), None);
-        
+
         let boilerplate_files =
             create_boilerplate_files(self.structure.clone(), self.root.as_path()).unwrap();
 
         self.parsed = boilerplate_files;
     }
-    
+
     pub fn write(&self) -> Result<(), Error> {
         write_boilerplate_files(self.parsed.clone(), self.output.to_str().unwrap())
+    }
+
+    pub fn rm_output_dir(&mut self) {
+        if self.output.exists() {
+            remove_dir_all(self.output).unwrap();
+        }
     }
 }

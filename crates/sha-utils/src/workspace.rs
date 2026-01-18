@@ -1,7 +1,5 @@
 use nanoid::nanoid;
-use std::{
-    path::{Path, PathBuf},
-};
+use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
 
 pub fn is_workspace_root(path: &Path) -> bool {
