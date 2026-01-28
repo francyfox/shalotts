@@ -1,0 +1,17 @@
+use dioxus::prelude::*;
+use crate::views::Route;
+
+#[component]
+pub fn Navbar() -> Element {
+    rsx! {
+        div {
+            id: "navbar",
+            Link {
+                to: Route::Home {},
+                "Home"
+            }
+        }
+
+        Outlet::<Route> {}
+    }
+}

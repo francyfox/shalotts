@@ -1,4 +1,6 @@
 [application]
+name = "sha_web"
+default_platform = "web"
 
 [web.app]
 

@@ -1,7 +1,7 @@
 .PHONY: dev docs
 
 dev:
-	cd ./crates/sha-app && dx serve --platform web
+	dx serve --package sha_web
 
 dev-cli:
 	cargo run
