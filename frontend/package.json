@@ -10,13 +10,42 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@una-ui/nuxt": "^1.0.0-alpha.14",
+    "@fontsource-variable/nunito-sans": "^5.2.7",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/telemetry": "^2.6.6",
+    "@pinia/nuxt": "^0.11.3",
+    "@t3-oss/env-nuxt": "^0.13.10",
+    "@vee-validate/zod": "^4.15.1",
+    "@vueuse/integrations": "^14.2.0",
+    "async-validator": "^4.2.5",
+    "axios": "^1.13.4",
+    "change-case": "^5.4.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "crc": "^4.3.2",
+    "fuse.js": "^7.1.0",
+    "lucide-vue-next": "^0.563.0",
     "nuxt": "^4.3.0",
+    "radix-vue": "^1.9.17",
+    "reka-ui": "^2.8.0",
+    "tailwind-merge": "^3.4.0",
+    "vee-validate": "^4.15.1",
     "vue": "^3.5.27",
-    "vue-router": "^4.6.4"
+    "vue-router": "^4.6.4",
+    "vue-sonner": "^2.0.9",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.13",
+    "@faker-js/faker": "^10.3.0",
     "@iconify-json/lucide": "^1.2.87",
-    "@iconify-json/tabler": "^1.2.26"
+    "@iconify-json/tabler": "^1.2.26",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@vueuse/core": "^14.2.0",
+    "@vueuse/nuxt": "^14.2.0",
+    "shadcn-nuxt": "^2.4.3",
+    "tailwindcss": "3",
+    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1.4.0"
   }
 }

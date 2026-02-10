@@ -1,0 +1,247 @@
+export const Elysia = {
+	version: "1.0.0",
+	metadata: {
+		id: "elysia-official-complete",
+		label: "ElysiaJS Full Stack Ecosystem",
+	},
+	ecosystems: [
+		{
+			id: "elysia-official-complete",
+			label: "ElysiaJS Full Stack Ecosystem",
+		},
+		{
+			id: "vite-vue",
+			label: "Vite Vue",
+			source: "https://github.com/vite/vue",
+		},
+		{
+			id: "test-build",
+			label: "Test Build",
+			source: "https://github.com/test",
+		},
+	],
+};
+
+export const testBuild = () => {
+	const result = JSON.parse(JSON.stringify(Elysia));
+	result.metadata.id = "test-build";
+	result.metadata.label = "Test Build";
+
+	return result;
+};
+export const ElysiaData = {
+	presets: [
+		{
+			seed: "TAA",
+			label: "Basic",
+		},
+		{
+			seed: "TAAAGAA",
+			label: "NestJS",
+		},
+	],
+	groups: [
+		{ id: "engine", label: "Engine", required: true },
+		{ id: "standard", label: "Standard Web" },
+		{ id: "security", label: "Security & Auth" },
+		{ id: "documentation", label: "Documentation" },
+		{
+			id: "database",
+			label: "Database & ORM",
+			radio: true,
+			dependency: ["engine"],
+		},
+		{ id: "ui", label: "Frontend Integration" },
+		{ id: "protocols", label: "Communication" },
+		{ id: "utils", label: "Utils" },
+	],
+	tags: [
+		{
+			id: "official",
+			icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1zaGllbGQtaWNvbiBsdWNpZGUtc2hpZWxkIj48cGF0aCBkPSJNMjAgMTNjMCA1LTMuNSA3LjUtNy42NiA4Ljk1YTEgMSAwIDAgMS0uNjctLjAxQzcuNSAyMC41IDQgMTggNCAxM1Y2YTEgMSAwIDAgMSAxLTFjMiAwIDQuNS0xLjIgNi4yNC0yLjcyYTEuMTcgMS4xNyAwIDAgMSAxLjUyIDBDMTQuNTEgMy44MSAxNyA1IDE5IDVhMSAxIDAgMCAxIDEgMXoiLz48L3N2Zz4=",
+		},
+		{
+			id: "core",
+			icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jcHUtaWNvbiBsdWNpZGUtY3B1Ij48cGF0aCBkPSJNMTIgMjB2MiIvPjxwYXRoIGQ9Ik0xMiAydjIiLz48cGF0aCBkPSJNMTcgMjB2MiIvPjxwYXRoIGQ9Ik0xNyAydjIiLz48cGF0aCBkPSJNMiAxMmgyIi8+PHBhdGggZD0iTTIgMTdoMiIvPjxwYXRoIGQ9Ik0yIDdoMiIvPjxwYXRoIGQ9Ik0yMCAxMmgyIi8+PHBhdGggZD0iTTIwIDE3aDIiLz48cGF0aCBkPSJNMjAgN2gyIi8+PHBhdGggZD0iTTcgMjB2MiIvPjxwYXRoIGQ9Ik03IDJ2MiIvPjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgcng9IjIiLz48cmVjdCB4PSI4IiB5PSI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4IiByeD0iMSIvPjwvc3ZnPg==",
+		},
+		{
+			id: "community",
+			icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS11c2Vycy1pY29uIGx1Y2lkZS11c2VycyI+PHBhdGggZD0iTTE2IDIxdi0yYTQgNCAwIDAgMC00LTRINmE0IDQgMCAwIDAtNCA0djIiLz48cGF0aCBkPSJNMTYgMy4xMjhhNCA0IDAgMCAxIDAgNy43NDQiLz48cGF0aCBkPSJNMjIgMjF2LTJhNCA0IDAgMCAwLTMtMy44NyIvPjxjaXJjbGUgY3g9IjkiIGN5PSI3IiByPSI0Ii8+PC9zdmc+",
+		},
+	],
+	registry: [
+		{
+			id: "elysia-core",
+			label: "Elysia Core",
+			group: "engine",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=elysia",
+			tags: ["core"],
+			default: true,
+		},
+		{
+			id: "elysia-swagger",
+			label: "Swagger",
+			group: "documentation",
+			target: ["server"],
+			icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiICBzdHlsZT0ib3BhY2l0eToxOyI+PHBhdGggZmlsbD0iIzg1ZWEyZCIgZD0iTTYzLjk5OSAxMjQuOTQ1Yy0zMy42MDcgMC02MC45NS0yNy4zNC02MC45NS02MC45NDlDMy4wNSAzMC4zODggMzAuMzkyIDMuMDQ4IDY0IDMuMDQ4czYwLjk1IDI3LjM0MiA2MC45NSA2MC45NWMwIDMzLjYwNy0yNy4zNDMgNjAuOTQ2LTYwLjk1IDYwLjk0NnoiLz48cGF0aCBmaWxsPSIjMTczNjQ3IiBkPSJNNDAuMyA0My4zMTFjLS4xOTggMi4xOS4wNzIgNC40NTQtLjA3MyA2LjY2OGMtLjE3MyAyLjIxNy0uNDQ0IDQuNDA3LS44ODggNi41OTZjLS42MTUgMy4xMjYtMi41NiA1LjQ4OS01LjI0IDcuNDU4YzUuMjE4IDMuMzk2IDUuODA3IDguNjYyIDYuMTUyIDE0LjAwM2MuMTcyIDIuODguMDk4IDUuNzg1LjM5NCA4LjYzOGMuMjIxIDIuMjE1IDEuMDgyIDIuNzgyIDMuMzcyIDIuODU0Yy45MzUuMDI1IDEuODk0IDAgMi45NzggMHY2Ljg0MmMtNi43NjggMS4xNTYtMTIuMzU0LS43NjItMTMuNzM0LTYuNDk2YTM5LjMgMzkuMyAwIDAgMS0uODM2LTYuNGMtLjE0OC0yLjI4Ny4wOTctNC41NzctLjA3NC02Ljg2NGMtLjQ5Mi02LjI3Ny0xLjMwNS04LjM5My03LjMwOC04LjY4OXYtNy44Yy40NDEtLjEuODYtLjE3NCAxLjMwMi0uMjIzYzMuMjk4LS4xNzIgNC43MDEtMS4xODIgNS40MTQtNC40M2EzNy41IDM3LjUgMCAwIDAgLjYxNi01LjUzNmMuMjQ3LTMuNTY5LjE0OC03LjIxLjc2My0xMC43NTRjLjg2LTUuMDk0IDQuMDEtNy41NTYgOS4yNTQtNy44NTJjMS40NzYtLjA3NCAyLjk3OCAwIDQuNjc2IDB2Ni45OWMtLjcxNC4wNS0xLjMzLjE0Ny0xLjk2OS4xNDdjLTQuMjU4LS4xNDgtNC40OCAxLjMwNC00LjggNC44NDh6bTguMTk1IDE2LjE5M2gtLjA5OWMtMi40NjItLjEyMy00LjU3OCAxLjc5Ni00LjcwMiA0LjI1OGMtLjEyMiAyLjQ4NSAxLjc5NyA0LjYwMyA0LjI1OSA0LjcyNGguMjk1YzIuNDM2LjE0OCA0LjUyNy0xLjcyNCA0LjY3Ni00LjE2di0uMjQ1Yy4wNS0yLjQ4Ni0xLjk0NC00LjUyNy00LjQzLTQuNTc3em0xNS40MyAwYy0yLjM4Ni0uMDc0LTQuMzggMS43OTYtNC40NTQgNC4xNTljMCAuMTQ5IDAgLjI3MS4wMjQuNDE4YzAgMi42ODQgMS44MjEgNC40MDYgNC41NzggNC40MDZjMi43MDcgMCA0LjQwNi0xLjc3MiA0LjQwNi00LjU1M2MtLjAyNS0yLjY4Mi0xLjgyMy00LjQ1NS00LjU1NC00LjQzbTE1LjgwMSAwYTQuNTk2IDQuNTk2IDAgMCAwLTQuNjc2IDQuNDU0YTQuNTE1IDQuNTE1IDAgMCAwIDQuNTI4IDQuNTI4aC4wNWMyLjI2NC4zOTQgNC41NTMtMS43OTYgNC43MDEtNC40MjljLjEyMi0yLjQzNy0yLjA5Mi00LjU1My00LjYwNC00LjU1M1ptMjEuNjgyLjM2OWMtMi44NTUtLjEyMy00LjI4NC0xLjA4My00Ljk5Ni0zLjc5YTI3LjQgMjcuNCAwIDAgMS0uODExLTUuMjkyYy0uMTk4LTMuMjk4LS4xNzQtNi42Mi0uMzk1LTkuOTE4Yy0uNTE2LTcuODI2LTYuMTc3LTEwLjU1Ny0xNC4zOTctOS4yMDV2Ni43OTJjMS4zMDQgMCAyLjMxMyAwIDMuMzIyLjAyNWMxLjc0OC4wMjQgMy4wNzcuNjkgMy4yNDkgMi42MzRjLjE3MiAxLjc3Mi4xNzIgMy41NjguMzQ0IDUuMzY1Yy4zNDYgMy41Ny41NDIgNy4xODcgMS4xNTcgMTAuNzA2Yy41NDIgMi45MDQgMi41MzYgNS4wNyA1LjAyIDYuODQxYy00LjM1NSAyLjkyOS01LjYzNiA3LjExMy01Ljg1NyAxMS44MTRjLS4xMjIgMy4yMjMtLjE5NiA2LjQ3Mi0uMzY4IDkuNzIxYy0uMTQ4IDIuOTUzLTEuMTgxIDMuOTEzLTQuMTYgMy45ODdjLS44MzUuMDI0LTEuNjQ4LjA5OC0yLjU4My4xNDh2Ni45NjRjMS43NDggMCAzLjM0Ny4xIDQuOTQ2IDBjNC45NzEtLjI5NSA3Ljk3NC0yLjcwNiA4Ljk2LTcuNTMxYy40MTctMi42NTguNjYyLTUuMzQuNzM3LTguMDIzYy4xNzEtMi40Ni4xNDgtNC45NDYuMzk0LTcuMzgyYy4zNjktMy44MTUgMi4xMTYtNS4zODkgNS45My01LjYzNmE1IDUgMCAwIDAgMS4wNi0uMjQ1di03LjgwMWMtLjY0LS4wNzQtMS4wODQtLjE0OC0xLjU1Mi0uMTczek02NCA2LjFjMzEuOTc3IDAgNTcuOSAyNS45MiA1Ny45IDU3Ljg5OGMwIDMxLjk3Ny0yNS45MjMgNTcuODk5LTU3LjkgNTcuODk5Yy0zMS45NzYgMC01Ny44OTgtMjUuOTIyLTU3Ljg5OC01Ny45QzYuMTAyIDMyLjAyMyAzMi4wMjQgNi4xMDEgNjQgNi4xMDFtMC02LjFDMjguNzEgMCAwIDI4LjcxIDAgNjRjMCAzNS4yODggMjguNzEgNjMuOTk4IDY0IDYzLjk5OHM2NC0yOC43MSA2NC02NFM5OS4yODkuMDAyIDY0IC4wMDJaIi8+PC9zdmc+",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-cors",
+			label: "CORS",
+			group: "security",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=elysia",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-jwt",
+			label: "JWT",
+			group: "security",
+			target: ["server"],
+			icon: "https://jwt.io/img/pic_logo.svg",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-bearer",
+			label: "Bearer",
+			group: "security",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=elysia",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-static",
+			label: "Static",
+			group: "standard",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=nodejs",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-html",
+			label: "HTML / JSX",
+			group: "standard",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=html",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-apollo",
+			label: "Apollo GraphQL",
+			group: "protocols",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=graphql",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-cron",
+			label: "Cron",
+			group: "standard",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=linux",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-stream",
+			label: "Stream",
+			group: "standard",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=nodejs",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-server-timing",
+			label: "Server Timing",
+			group: "utils",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=elysia",
+			tags: ["official"],
+		},
+		{
+			id: "elysia-msgpack",
+			label: "MessagePack",
+			group: "protocols",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=nodejs",
+			tags: ["official"],
+		},
+		{
+			id: "lucia-auth",
+			label: "Lucia Auth",
+			group: "auth",
+			target: ["server"],
+			icon: "https://lucia-auth.com/logo.svg",
+			source: "https://github.com/lucia-auth/lucia",
+			tags: ["community", "popular"],
+		},
+		{
+			id: "elysia-clerk",
+			label: "Clerk Auth",
+			group: "auth",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=clerk",
+			source: "https://github.com/clerk/clerk-sdk-node",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-prisma",
+			label: "Prisma",
+			group: "database",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=prisma",
+			source: "https://github.com/prisma/prisma",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-drizzle",
+			label: "Drizzle ORM",
+			group: "database",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=sqlite",
+			source: "https://github.com/drizzle-team/drizzle-orm",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-helmet",
+			label: "Helmet",
+			group: "utility",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=nodejs",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-ip",
+			label: "IP Helper",
+			group: "utility",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=network",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-rate-limit",
+			label: "Rate Limit",
+			group: "utility",
+			target: ["server"],
+			icon: "https://skillicons.dev/icons?i=nginx",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-vite",
+			label: "Vite Renderer",
+			group: "ui",
+			target: ["server", "client"],
+			icon: "https://skillicons.dev/icons?i=vite",
+			tags: ["community"],
+		},
+		{
+			id: "elysia-trpc",
+			label: "tRPC",
+			group: "ui",
+			target: ["server", "client"],
+			icon: "https://skillicons.dev/icons?i=ts",
+			tags: ["community"],
+		},
+	],
+};

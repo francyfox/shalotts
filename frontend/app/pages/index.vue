@@ -1,8 +1,13 @@
 <script setup lang="ts">
+definePageMeta({
+	middleware: "ecosystem",
+});
 </script>
 
 <template>
- <NButton>
-   Click me!
- </NButton>
+
 </template>
+
+<style scoped>
+
+</style>
