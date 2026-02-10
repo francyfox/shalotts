@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli", "crates/sha-utils", "crates/sha-scaffolder"]
+members = ["crates/sha-validator", "crates/sha-web", "crates/sha-cli", "crates/sha-utils", "crates/sha-scaffolder", "crates/sha_seed"]
 default-members = ["crates/sha-cli"]
 resolver = "2"
 

@@ -1,7 +1,10 @@
-{% block import %}
-import { html } from '@elysiajs/html'
-{% endblock import %}
+{%- extends 'core/app.ts' -%}
 
-{% block add.plugin %}
-.use(html())
-{% endblock %}
+{%- block import -%}
+{{ super() }}
+import { html } from '@elysiajs/html'
+{%- endblock import %}
+
+{%- block plugin -%}
+use(html())
+{%- endblock -%}

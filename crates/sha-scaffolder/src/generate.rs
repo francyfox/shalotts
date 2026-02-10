@@ -1,43 +1,57 @@
-use sha_utils::{get_workspace_root, parse_dir};
-use sha_validator::ShaMainConfig;
-use std::{collections::HashMap, path::Path};
+use sha_utils::consts::Error;
+use sha_utils::{create_boilerplate_files, get_workspace_root, parse_dir, write_boilerplate_files};
+use std::{
+    collections::HashMap,
+    fs::remove_dir_all,
+    path::{Path, PathBuf},
+};
 
-struct Node {
-    is_dir: bool,
-    content: String,
+pub struct Generator<'a> {
+    root: PathBuf,
+    path: &'a Path,
+    output: &'a Path,
+    parsed: HashMap<String, String>,
+    structure: Vec<PathBuf>,
 }
 
-pub struct Generator {
-    path: String,
-    structure: HashMap<String, Node>,
-}
-
-impl Generator {
-    pub fn new(path: String) -> Self {
+impl<'a> Generator<'a> {
+    pub fn new(path: &'a Path, output: &'a Path) -> Self {
         Self {
-            path: path.to_string(),
-            structure: HashMap::new(),
+            root: PathBuf::new(),
+            path,
+            output,
+            parsed: HashMap::new(),
+            structure: Vec::new(),
         }
     }
 
-    pub fn make(&mut self, config: &ShaMainConfig) {
-        self.parse_hash_tree(config);
-        for (path, node) in &self.structure {
-            // println!("Path: {}, is_dir: {}", path, node.is_dir);
+    pub fn parse(&mut self) {
+        // path points to sha.toml file, get its parent for packages
+        if let Some(example_dir) = self.path.parent() {
+            // If path is relative, resolve it from workspace root
+            let absolute_path = if self.path.is_absolute() {
+                example_dir.to_path_buf()
+            } else {
+                get_workspace_root().join(example_dir)
+            };
+            self.root = absolute_path.join("packages");
+        }
+
+        self.structure = parse_dir(self.root.as_path(), None);
+
+        let boilerplate_files =
+            create_boilerplate_files(self.structure.clone(), self.root.as_path()).unwrap();
+
+        self.parsed = boilerplate_files;
+    }
+
+    pub fn write(&self) -> Result<(), Error> {
+        write_boilerplate_files(self.parsed.clone(), self.output.to_str().unwrap())
+    }
+
+    pub fn rm_output_dir(&mut self) {
+        if self.output.exists() {
+            remove_dir_all(self.output).unwrap();
         }
     }
-
-    pub fn parse_hash_tree(&mut self, config: &ShaMainConfig) {
-        let mut root = get_workspace_root();
-        if let Some(parent) = Path::new(&self.path).parent() {
-            root.push(parent.strip_prefix("/").unwrap_or(parent));
-            root.push("packages");
-        };
-
-        println!("{:?}", root);
-        let files = parse_dir(root.as_path(), None);
-        println!("{:?}", files);
-    }
-
-    fn get_route(path: &str) {}
 }
