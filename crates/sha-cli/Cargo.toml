@@ -14,6 +14,8 @@ sha_validator = { path = "../sha-validator" }
 sha_utils = { path = "../sha-utils" }
 sha_scaffolder = { path = "../sha-scaffolder" }
 dioxus-primitives = { git = "https://github.com/DioxusLabs/components", version = "0.0.1", default-features = false }
+indicatif = "0.17"
+colored = "2.1"
 
 # Read the optimization guideline
 [profile.release]

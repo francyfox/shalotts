@@ -1,13 +1,11 @@
-seed = ""
+seed = "elysia-starter"
 name = "Elysia starter"
 ecosystem = "elysia"
-
-[tab.back]
-name = "Server"
 
 [tab.back.serve]
 required = true
 packages = ["core"]
 
 [tab.back.pack]
+required = false
 packages = ["html", "static"]

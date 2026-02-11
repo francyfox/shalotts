@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [ \"main\", \"develop\" ]
+    paths-ignore:
+      - \"**.md\"
+  pull_request:
+    branches: [ \"main\", \"develop\" ]
+    paths-ignore:
+      - \"**.md\"
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: full
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Enforce Formatting
+        run: cargo fmt -- --check
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Enforce Linting
+        run: cargo clippy --workspace -- -D warnings
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache Cargo registry
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('Cargo.lock') }}
+
+      - name: Cache Cargo build
+        uses: actions/cache@v3
+        with:
+          path: target
+          key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('Cargo.lock') }}
+
+      - name: Run tests
+        run: cargo test --workspace

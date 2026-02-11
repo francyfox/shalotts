@@ -16,6 +16,10 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/sha-web/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/sha-utils/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/sha-scaffolder/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/sha-api/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/sha-api/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/sha-seed/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/crates/sha-scaffolder/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

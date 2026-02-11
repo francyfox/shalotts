@@ -7,3 +7,5 @@ edition = "2024"
 log.workspace = true
 sha_validator = { path = "../sha-validator" }
 sha_utils = { path = "../sha-utils" }
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }

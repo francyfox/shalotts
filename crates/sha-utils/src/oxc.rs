@@ -5,10 +5,11 @@ use oxc::parser::{ParseOptions, Parser};
 use oxc::span::SourceType;
 use oxc_codegen::Codegen;
 
-pub fn fmt(path: &Path, source_text: &String) -> String {
+pub fn fmt(path: &Path, source_text: &str) -> String {
     let Ok(source_type) = SourceType::from_path(path) else {
-        return source_text.clone();
+        return source_text.to_owned();
     };
+
     let allocator = Allocator::default();
     let parser = Parser::new(&allocator, source_text, source_type)
         .with_options(ParseOptions {

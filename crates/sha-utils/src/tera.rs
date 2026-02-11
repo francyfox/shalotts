@@ -16,7 +16,7 @@ pub fn create_boilerplate_files(
     let files_clone = files.clone();
     let tera_files: Vec<PathBuf> = files
         .into_iter()
-        .filter(|i| i.extension().map_or(false, |ext| ext == "jinja2"))
+    .filter(|i| i.extension().is_some_and(|ext| ext == "jinja2"))
         .collect();
     let mut result: HashMap<String, String> = HashMap::new();
 
@@ -38,7 +38,7 @@ pub fn create_boilerplate_files(
     }
 
     for file in files_clone {
-        let is_template = file.extension().map_or(false, |ext| ext == "jinja2");
+        let is_template = file.extension().is_some_and(|ext| ext == "jinja2");
         let is_core = file
             .parent()
             .and_then(|p| p.file_name())
@@ -135,10 +135,8 @@ pub fn write_boilerplate_files(files: HashMap<String, String>, output: &str) -> 
             fs::create_dir_all(parent).map_err(Error::IoError)?;
         }
 
-        println!("{:?}", output_path);
         let formatted_content = fmt(output_path.as_ref(), &content);
         fs::write(&output_path, formatted_content).map_err(Error::IoError)?;
-        println!("✓ Written: {}", output_path.display());
     }
 
     Ok(())

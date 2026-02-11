@@ -1,10 +1,11 @@
+pub mod api;
 use std::path::Path;
 
 use sha_validator::{ShaMainConfig, validate};
-
 use crate::generate::Generator;
 mod generate;
 
+#[allow(dead_code)]
 pub struct Scaffolder {
     config: ShaMainConfig,
 }
